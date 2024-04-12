@@ -1,6 +1,6 @@
-package dev.cirosanchez.template.extension
+package dev.cirosanchez.cave.extension
 
-import dev.cirosanchez.template.Template
+import dev.cirosanchez.cave.Cave
 import net.kyori.adventure.text.Component
 import org.bukkit.ChatColor
 import org.bukkit.ChatColor.COLOR_CHAR
@@ -8,7 +8,7 @@ import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 fun String.colorize(): Component {
-    return Template.mm.deserialize(this)
+    return Cave.mm.deserialize(this)
 }
 
 fun String.colorizeLegacy(): String {

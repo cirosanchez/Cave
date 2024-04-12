@@ -1,18 +1,17 @@
-package dev.cirosanchez.template
+package dev.cirosanchez.cave
 
-import dev.cirosanchez.template.configuration.ConfigurationProvider
+import dev.cirosanchez.cave.configuration.ConfigurationProvider
 import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.plugin.java.JavaPlugin
 import revxrsal.commands.bukkit.BukkitCommandHandler
 
 
-// TODO: rename class and parent package.
-class Template : JavaPlugin() {
+class Cave : JavaPlugin() {
 
 
     companion object{
         val mm = MiniMessage.miniMessage()
-        fun get(): Template = getPlugin(Template::class.java)
+        fun get(): Cave = getPlugin(Cave::class.java)
     }
 
     lateinit var configurationProvider: ConfigurationProvider

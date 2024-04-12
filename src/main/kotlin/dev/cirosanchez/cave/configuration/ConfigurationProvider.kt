@@ -1,4 +1,4 @@
-package dev.cirosanchez.template.configuration
+package dev.cirosanchez.cave.configuration
 
 import org.bukkit.plugin.Plugin
 

@@ -1,12 +1,26 @@
+import java.util.*
+
 plugins {
     kotlin("jvm") version "1.9.21"
     id("com.github.johnrengelman.shadow") version("8.1.1")
     id("xyz.jpenilla.run-paper") version "2.2.2"
+    id("pl.allegro.tech.build.axion-release") version "1.13.4"
 }
 
-//TODO: Change group and version.
-group = "me.cirosanchez.template"
-version = "1.0-SNAPSHOT"
+group = "me.cirosanchez.cave"
+
+val propertiesFile = file("build.properties")
+val buildProperties = Properties()
+
+if (propertiesFile.exists()) {
+    buildProperties.load(propertiesFile.inputStream())
+}
+var buildNumber: Int = buildProperties.getProperty("buildNumber", "0").toInt()
+
+version = "0.1.-$buildNumber"
+
+buildProperties.setProperty("buildNumber", (buildNumber + 1).toString())
+buildProperties.store(propertiesFile.outputStream(), null)
 
 repositories {
     mavenCentral()
@@ -39,4 +53,9 @@ kotlin {
 
 tasks.runServer {
     minecraftVersion("1.20.4")
+}
+
+tasks.shadowJar {
+    archiveFileName = "${project.name}-${project.version}.jar"
+    minimize()
 }

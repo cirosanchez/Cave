@@ -1,5 +1,4 @@
 
-# TODO: Change name and main class.
-main: me.cirosanchez.template.Template
-name: Template
-version: 1.0
+main: me.cirosanchez.cave.Cave
+name: Cave
+version: '0.1'
