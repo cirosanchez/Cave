@@ -4,12 +4,19 @@
 
 package dev.cirosanchez.cave.messages.color.impl
 
+import dev.cirosanchez.cave.extension.colorizeLegacy
 import dev.cirosanchez.cave.extension.send
 import dev.cirosanchez.cave.messages.color.ColorResolver
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import revxrsal.commands.ktx.colorize
 
 class MiniMessageColorResolver : ColorResolver {
-    override fun send(player: Player, string: String) {
-        player.send(string)
+    override fun sendToPlayer(player: Player, string: String) {
+        player.send(string.colorize())
+    }
+
+    override fun sendToCommandSender(commandSender: CommandSender, string: String) {
+        commandSender.sendMessage(string.colorizeLegacy())
     }
 }

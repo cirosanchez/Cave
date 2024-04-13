@@ -4,8 +4,10 @@
 
 package dev.cirosanchez.cave.messages.color
 
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
 interface ColorResolver {
-    fun send(player: Player, string: String)
+    fun sendToPlayer(player: Player, string: String)
+    fun sendToCommandSender(commandSender: CommandSender, string: String)
 }
