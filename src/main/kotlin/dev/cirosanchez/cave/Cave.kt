@@ -17,10 +17,13 @@ class Cave : JavaPlugin() {
     companion object{
         val mm = MiniMessage.miniMessage()
         fun get(): Cave = getPlugin(Cave::class.java)
+        fun configurationProvider(): ConfigurationProvider {
+            return get().configurationProvider
+        }
     }
 
-    lateinit var configurationProvider: ConfigurationProvider
-    lateinit var commandHandler: BukkitCommandHandler
+    private lateinit var configurationProvider: ConfigurationProvider
+    private lateinit var commandHandler: BukkitCommandHandler
 
     override fun onEnable() {
 

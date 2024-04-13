@@ -8,6 +8,9 @@ package dev.cirosanchez.cave.extension
 import org.bukkit.entity.Player
 
 
-fun Player.sendColorizedMessage(message: String) {
+/*
+ * Sends a MiniMessage component to the player deserialized from the given String.
+ */
+fun Player.send(message: String) {
     this.sendMessage(message.colorize())
 }
