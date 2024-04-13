@@ -8,8 +8,6 @@ import dev.cirosanchez.cave.Cave
 import dev.cirosanchez.cave.exceptions.ColorResolverNotFoundException
 import dev.cirosanchez.cave.exceptions.PathNotFoundException
 import dev.cirosanchez.cave.messages.color.ColorResolver
-import dev.cirosanchez.cave.messages.color.impl.LegacyColorCodesResolver
-import dev.cirosanchez.cave.messages.color.impl.MiniMessageColorResolver
 import dev.cirosanchez.cave.messages.util.Placeholder
 import me.clip.placeholderapi.PlaceholderAPI
 import org.bukkit.command.CommandSender
@@ -17,7 +15,6 @@ import org.bukkit.entity.Player
 
 object Messenger {
 
-    private val plugin = Cave.get()
     private val configurationProvider = Cave.configurationProvider()
     private val colorResolver: ColorResolver = getColorResolver()
 
@@ -25,24 +22,13 @@ object Messenger {
         val colorResolverString = configurationProvider.messages.getString("color-resolver") ?: throw ColorResolverNotFoundException()
 
         when (colorResolverString.uppercase()){
-            "MINIMESSAGE" -> return MiniMessageColorResolver()
-            "LEGACY"-> return LegacyColorCodesResolver()
+            "MINIMESSAGE" -> return ColorResolver.MINIMESSAGE
+            "LEGACY"-> return ColorResolver.LEGACY
 
             else -> {
                 throw ColorResolverNotFoundException()
             }
         }
-    }
-
-    fun send(player: Player, path: String, vararg placeholders: Placeholder){
-        var messageString = configurationProvider.messages.getString(path) ?: throw PathNotFoundException(path)
-        messageString = PlaceholderAPI.setPlaceholders(player, messageString)
-
-        placeholders.forEach {
-            messageString = it.replace(messageString)
-        }
-
-        colorResolver.sendToPlayer(player, messageString)
     }
 
 
@@ -53,7 +39,12 @@ object Messenger {
             messageString = it.replace(messageString)
         }
 
-        colorResolver.sendToCommandSender(commandSender, messageString)
+
+        if (commandSender is Player) {
+            messageString = PlaceholderAPI.setPlaceholders(commandSender, messageString)
+        }
+
+        colorResolver.send(commandSender, messageString)
     }
 
 
