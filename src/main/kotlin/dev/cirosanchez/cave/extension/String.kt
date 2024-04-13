@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) Ciro Sánchez B. 2024.
+ */
+
+
+@file:Suppress("DEPRECATION")
 package dev.cirosanchez.cave.extension
 
 import dev.cirosanchez.cave.Cave

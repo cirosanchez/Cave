@@ -1,5 +1,15 @@
+/*
+ * Copyright (c) Ciro Sánchez B. 2024.
+ */
+
+
 package dev.cirosanchez.cave.extension
 
+/*
+    This class was taken and adapted from
+    Twilight (a flyte.gg solution).
+    https://flyte.gg
+ */
 enum class Symbol(val symbol: String) {
     BULLET("•"),
     HEART("❤"),

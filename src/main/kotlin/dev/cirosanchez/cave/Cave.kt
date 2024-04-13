@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Ciro Sánchez B. 2024.
+ */
+
+
 package dev.cirosanchez.cave
 
 import dev.cirosanchez.cave.configuration.ConfigurationProvider
@@ -18,8 +23,10 @@ class Cave : JavaPlugin() {
     lateinit var commandHandler: BukkitCommandHandler
 
     override fun onEnable() {
+
         // Configuration
         configurationProvider = ConfigurationProvider(this).init()
+
         // Commands
         commandHandler = BukkitCommandHandler.create(this)
     }

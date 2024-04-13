@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) Ciro Sánchez B. 2024.
+ */
+
+
 package dev.cirosanchez.cave.configuration
 
 import org.bukkit.configuration.file.YamlConfiguration

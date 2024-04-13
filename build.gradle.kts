@@ -37,8 +37,8 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
 
     // Commands
-    implementation("com.github.Revxrsal.Lamp:common:3.1.9")
-    implementation("com.github.Revxrsal.Lamp:bukkit:3.1.9")
+    implementation("com.github.Revxrsal.Lamp:common:3.2.1")
+    implementation("com.github.Revxrsal.Lamp:bukkit:3.2.1")
 
     // twilight
     implementation("gg.flyte:twilight:1.1.7")
