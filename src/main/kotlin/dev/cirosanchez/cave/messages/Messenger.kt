@@ -22,7 +22,7 @@ object Messenger {
         val colorResolverString = configurationProvider.messages.getString("color-resolver") ?: throw ColorResolverNotFoundException()
 
         when (colorResolverString.uppercase()){
-            "MINIMESSAGE" -> return ColorResolver.MINIMESSAGE
+            "MINIMESSAGE" -> return ColorResolver.MM
             "LEGACY"-> return ColorResolver.LEGACY
 
             else -> {
