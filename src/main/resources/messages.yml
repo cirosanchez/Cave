@@ -4,9 +4,10 @@
 # 88        88'  `88 88   d8' 88ooood8
 # Y8.   .88 88.  .88 88 .88'  88.  ...
 #  Y88888P' `88888P8 8888P'   `88888P'
+
 # Thanks for using Cave BoxPvP Core.
 
-# In this file you'll find everything related to messages that reach the player.
+# In this file you'll find everything related to messages that reach the player or console.
 
 # Please, set up your color resolver.
 # This will be the way the messages are interpreted.
@@ -16,6 +17,8 @@
 # MiniMessage -> This will use the MiniMessage formatting. RECOMMENDED.
 color-resolver: MiniMessage
 
+
+# Non placeholder compatible.
 exceptions:
   must-be-player: "<red>You must be a player!</red>"
   must-be-console: "<red>You must be console!</red>"
@@ -23,4 +26,4 @@ exceptions:
   invalid-world: "<red>{input} is NOT a world.</red>"
   invalid-selector: "<red>{input} is NOT a player: {error}</red>"
   only-one-player: "<red>{input} are too much.</red>"
-  non-players-not-allowed: "<red>{input}} are not players.</red>"
+  non-players-not-allowed: "<red>{input} are not players.</red>"
