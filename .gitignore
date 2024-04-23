@@ -44,3 +44,4 @@ bin/
 ### Build Related ###
 build.properties
 *.class
+.idea
